@@ -113,6 +113,10 @@ function StarWarsProvider({ children }) {
     ]);
   };
 
+  const handleFilterClick = () => {
+    console.log('clicou no botão!');
+  };
+
   const context = {
     columnOptions,
     data,
@@ -122,6 +126,7 @@ function StarWarsProvider({ children }) {
     handleNameChange,
     handleClick,
     handleFiltersChange,
+    handleFilterClick,
   };
 
   return (

@@ -3,7 +3,7 @@ import StarWarsContext from '../context/StarWarsContext';
 
 function Table() {
   const { columnOptions, data, showFilters, handleNameChange,
-    handleFiltersChange, handleClick } = useContext(StarWarsContext);
+    handleFiltersChange, handleClick, handleFilterClick } = useContext(StarWarsContext);
   const thContent = ['Name', 'Rotation Period', 'Orbital Period', 'Diameter',
     'Climate', 'Gravity', 'Terrain', 'Surface Water', 'Population', 'Films',
     'Create', 'Edited', 'URL'];
@@ -56,8 +56,9 @@ function Table() {
           showFilters.map((filter, index) => (
             <div key={ index }>
               <span>
-                {`${filter.showColumn} | ${filter.showComparison} | ${filter.showValue}`}
+                {`${filter.showColumn} | ${filter.showComparison} | ${filter.showValue} `}
               </span>
+              <button type="button" onClick={ handleFilterClick }>X</button>
               <br />
             </div>))) : '' }
       <br />
@@ -65,7 +66,6 @@ function Table() {
       { data.length > 0
         ? (
           <table>
-            { console.log(columnOptions)}
             <thead>
               <tr>
                 { thContent.map((headName) => <th key={ headName }>{ headName }</th>) }
